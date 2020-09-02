@@ -146,19 +146,21 @@ def time_extract(text):
     return [x for x in final_res if x is not None]
 
 
-text1 = '我要住到明天下午三点'
-print(text1, time_extract(text1), sep=':')
+# if __name__ == '__main__':
 
-
-text2 = '预定28号的房间'
-print(text2, time_extract(text2), sep=':')
-
-text3 = '我要从26号下午4点住到11月2号'
-print(text3, time_extract(text3), sep=':')
-
-
-text5 = '我要预订今天到30的房间'
-print(text5, time_extract(text5), sep=':')
-
-text4 = '我要预订到1号到3号的房间'
-print(text4, time_extract(text4), sep=':')
+    # text1 = '我要住到明天下午三点'
+    # print(text1, time_extract(text1), sep=':')
+    #
+    #
+    # text2 = '预定28号的房间'
+    # print(text2, time_extract(text2), sep=':')
+    #
+    # text3 = '我要从26号下午4点住到11月2号'
+    # print(text3, time_extract(text3), sep=':')
+    #
+    #
+    # text5 = '我要预订今天到30的房间'
+    # print(text5, time_extract(text5), sep=':')
+    #
+    # text4 = '我要预订到1号到3号的房间'
+    # print(text4, time_extract(text4), sep=':')
