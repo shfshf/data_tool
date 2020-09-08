@@ -116,7 +116,7 @@ def query_url(date, from_station, to_station):
     resp = requests.get(url, headers=headers)  # 请求的结果为响应
     # 设置响应的编码格式，不然会发生乱码
     resp.encoding = 'utf-8'
-    print(resp.text)
+    # print(resp.text)
     info_list = query_train_info(resp, hour_time)
     return info_list
 
@@ -124,6 +124,7 @@ def query_url(date, from_station, to_station):
 if __name__ == '__main__':
 
     date = '2020-09-19 11:00:00'
+    date1 = '2020-09-19 00:00:00'
     from_station = '北京'
     to_station = '上海'
     info_list = query_url(date, from_station, to_station)

@@ -16,7 +16,7 @@ install_requires = [
 
 setup(
     name=os.getenv("_PKG_NAME", "data_tool"),  # _PKG_NAME will be used in Makefile for dev release
-    version="0.0.6",
+    version="0.0.7",
     packages=setuptools.find_packages(),
     include_package_data=True,
     url="https://github.com/shfshf/data_tool",
