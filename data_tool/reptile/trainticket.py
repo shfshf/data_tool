@@ -32,12 +32,14 @@ stations_dict = get_station()
 code_dict = {v: k for k, v in stations_dict.items()}
 
 
-def query_train_info(url):
+def query_train_info(url, hour_time):
     '''
     查询火车票信息：
     返回 信息查询列表
     '''
 
+    time_list = hour_time.split(':')
+    total_minutes = int(time_list[0]) * 60 + int(time_list[1])
     info_list = []
     try:
 
@@ -58,6 +60,11 @@ def query_train_info(url):
             to_station_name = code_dict[to_station_code]
             # 出发时间
             start_time = data_list[8]
+            start_time_vec = start_time.split(':')
+            start_total_minutes = int(start_time_vec[0]) * 60 + int(start_time_vec[1])
+            # 忽略超过120分钟的车次
+            if abs(start_total_minutes - total_minutes) > 120:
+                continue
             # 到达时间
             arrive_time = data_list[9]
             # 总耗时
@@ -90,13 +97,16 @@ def query_train_info(url):
 def query_url(date, from_station, to_station):
     # api url 构造
     # 基于 mac 系统 cookie 有效
+    list_starting_time = date.split(' ')
+    date_time = list_starting_time[0]
+    hour_time = list_starting_time[1]
     url = (
         'https://kyfw.12306.cn/otn/leftTicket/query?'
         'leftTicketDTO.train_date={}&'
         'leftTicketDTO.from_station={}&'
         'leftTicketDTO.to_station={}&'
         'purpose_codes=ADULT'
-    ).format(date, stations_dict[from_station], stations_dict[to_station])
+    ).format(date_time, stations_dict[from_station], stations_dict[to_station])
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36',
         'Cookie': '_uab_collina=159885825689025795678935; JSESSIONID=A238DA197465C7903808F983656FEB74; route=6f50b51faa11b987e576cdb301e545c4; BIGipServerpool_passport=233636362.50215.0000; RAIL_EXPIRATION=1599153754431; RAIL_DEVICEID=dLy55zK-ebBmfVMHwTObsJzOcrN0RynsdloGOkOt--aLkrIjpADFB5flrAYQ_MTUTFFv1pksVKJKQExuocoQj2HLTX41MKuMitV3iqi5XTF_wK0fVLAs6-L83f4plVJ2EJ4uAk4sIVEN1CkcvD3qgWodu6neFIVh; _jc_save_fromStation=%u4E0A%u6D77%2CSHH; _jc_save_toStation=%u5317%u4EAC%2CBJP; _jc_save_toDate=2020-08-31; _jc_save_wfdc_flag=dc; _jc_save_fromDate=2020-09-01; BIGipServerotn=1257243146.64545.0000'}
@@ -104,13 +114,13 @@ def query_url(date, from_station, to_station):
     # 设置响应的编码格式，不然会发生乱码
     resp.encoding = 'utf-8'
     # print(resp.text)
-    info_list = query_train_info(resp)
+    info_list = query_train_info(resp, hour_time)
     return info_list
 
 
 if __name__ == '__main__':
 
-    date = '2020-09-19'
+    date = '2020-09-19 11:00:00'
     from_station = '北京'
     to_station = '上海'
     info_list = query_url(date, from_station, to_station)

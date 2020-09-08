@@ -165,4 +165,4 @@ if __name__ == '__main__':
     # text4 = '我要预订到1号到3号的房间'
     # print(text4, time_extract(text4), sep=':')
     print(time_extract("9月27号上午10点"))
-    print(time_extract("30"))
+    print(time_extract("明天"))
