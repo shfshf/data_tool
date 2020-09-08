@@ -146,7 +146,7 @@ def time_extract(text):
     return [x for x in final_res if x is not None]
 
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
 
     # text1 = '我要住到明天下午三点'
     # print(text1, time_extract(text1), sep=':')
@@ -164,3 +164,5 @@ def time_extract(text):
     #
     # text4 = '我要预订到1号到3号的房间'
     # print(text4, time_extract(text4), sep=':')
+    print(time_extract("9月27号上午10点"))
+    print(time_extract("30"))
