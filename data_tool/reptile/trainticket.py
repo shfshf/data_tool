@@ -62,8 +62,11 @@ def query_train_info(url, hour_time):
             start_time = data_list[8]
             start_time_vec = start_time.split(':')
             start_total_minutes = int(start_time_vec[0]) * 60 + int(start_time_vec[1])
+            # 明天后天这样的日期（'00:00:00'）打印出全天的车次
+            if hour_time == '00:00:00':
+                pass
             # 忽略超过120分钟的车次
-            if abs(start_total_minutes - total_minutes) > 120:
+            elif abs(start_total_minutes - total_minutes) > 120:
                 continue
             # 到达时间
             arrive_time = data_list[9]
@@ -113,7 +116,7 @@ def query_url(date, from_station, to_station):
     resp = requests.get(url, headers=headers)  # 请求的结果为响应
     # 设置响应的编码格式，不然会发生乱码
     resp.encoding = 'utf-8'
-    # print(resp.text)
+    print(resp.text)
     info_list = query_train_info(resp, hour_time)
     return info_list
 
