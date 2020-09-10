@@ -16,10 +16,10 @@ install_requires = [
 
 setup(
     name=os.getenv("_PKG_NAME", "data_tool"),  # _PKG_NAME will be used in Makefile for dev release
-    version="0.0.11",
+    version="0.0.12",
     packages=setuptools.find_packages(),
     data_files=[
-        ('dict.txt', ['./data_tool/rule_date/dict.txt']),      # 打包jieba需要的自定义词典
+        ('data_tool/rule_date', ['data_tool/rule_date/dict.txt']),      # 打包jieba需要的自定义词典
     ],
     package_data={
     },
