@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 # from dateutil.parser import parse
 import jieba.posseg as psg
 import jieba
+import os
 
 
 UTIL_CN_NUM = {
@@ -225,7 +226,8 @@ def time_extract(text):
     keyDate = {'今天': 0, '明天': 1, '后天': 2, '昨天': -1, '前天': -2}
     timedic = ['时', '分', '到']
     tmptext = []
-    jieba.load_userdict("dict.txt")  # 自定义分词词典
+    path = os.path.abspath('.')       # 获取相对路径
+    jieba.load_userdict(path + "/dict.txt")  # 自定义分词词典
     for k, v in psg.cut(text):  # k: 词语, v: 词性
         tmptext.append([k, v])
     for i in range(len(tmptext)):
