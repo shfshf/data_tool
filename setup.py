@@ -16,13 +16,15 @@ install_requires = [
 
 setup(
     name=os.getenv("_PKG_NAME", "data_tool"),  # _PKG_NAME will be used in Makefile for dev release
-    version="0.0.9",
+    version="0.0.11",
     packages=setuptools.find_packages(),
+    data_files=[
+        ('dict.txt', ['./data_tool/rule_date/dict.txt']),      # 打包jieba需要的自定义词典
+    ],
     package_data={
-        '': ['*.txt'],
     },
     exclude_package_data={
-     },
+    },
     include_package_data=True,
     url="https://github.com/shfshf/data_tool",
     license="Apache 2.0",
