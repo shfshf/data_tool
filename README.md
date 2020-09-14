@@ -6,3 +6,6 @@ data_parser.py:
 trainticket.py:
 12306火车票信息查询
 
+## weather:
+weather.py:
+天气查询的 server
