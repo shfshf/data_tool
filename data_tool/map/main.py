@@ -1,5 +1,5 @@
-from round_plan import Round_plan
-from pos_coord import Coord2Pos, Pos2Coord
+from data_tool.map.round_plan import Round_plan
+from data_tool.map.pos_coord import Coord2Pos, Pos2Coord
 
 
 def get_pos(origin0, destination0):
@@ -71,8 +71,11 @@ if __name__ == '__main__':
         print("total_time: " + stepstr_list[1])
         all_path = list(stepstr_list[2:])
         n = 3
+        res = []
         for b in [all_path[i:i + n] for i in range(0, len(all_path), n)]:
             print(', '.join(b))
+            res.append(', '.join(b))
+        print(res)
     elif transit_mode == 'Bike':
         ride_res = Round_plan(transit_mode)
         stepstr = ride_res.stod(origin_ln, origin_la, destination_ln, destination_la)
