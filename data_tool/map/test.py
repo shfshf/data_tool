@@ -75,7 +75,7 @@ else:
 
 # origin = '40.01116,116.339303'
 # destination = '39.936404,116.452562'
-AK = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'
+AK = 'ASDFGGHHHHHH'     # key = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'
 # # 驾车
 url = 'http://api.map.baidu.com/direction/v2/driving?origin=%s&destination=%s&ak=%s&waypoints=%s&tactics=%s' % (origin, destination, AK, waypoints, tactics)
 # real_url = url + "origin="+slat+","+slng+"&destination="+dlat+","+dlng+"&ak="+ak

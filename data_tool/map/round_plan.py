@@ -27,6 +27,7 @@ class Round_plan():
             a = "walking"
         else:
             a = "driving"  # 默认是驾车模式
+
         if self.route_type == '距离最短':
             tactics = '2'
         elif route_type == '不走高速':
@@ -52,7 +53,7 @@ class Round_plan():
         else:
             tactics = '0'  # 默认路线类型名
         url = "http://api.map.baidu.com/direction/v2/" + a + "?"   # API地址
-        ak = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'  # 秘钥
+        ak = 'ASDCFGHHJJJJ'  # 秘钥  key = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'
         if self.transit_mode == "E-bike":
             # 完整的请求代码
             real_url = url + "origin="+slat+","+slng+"&destination="+dlat+","+dlng+"&ak="+ak+"&riding_type="+"1"
