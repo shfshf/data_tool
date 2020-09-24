@@ -71,6 +71,33 @@ def Coord2Pos(lng, lat, town='true'):
         print('无法获取(%s,%s)的地理信息！' % (lat, lng))
 
 
+def get_pos(origin0, destination0):
+    origin1 = Pos2Coord(origin0)
+    origin_lng = origin1['lng']
+    origin_lat = origin1['lat']
+    origin_ln = str(round(origin_lat, 6))
+    origin_la = str(round(origin_lng, 6))
+
+    destination1 = Pos2Coord(destination0)
+    destination_lng = destination1['lng']
+    destination_lat = destination1['lat']
+    destination_ln = str(round(destination_lat, 6))
+    destination_la = str(round(destination_lng, 6))
+
+    return origin_ln, origin_la, destination_ln, destination_la
+
+
+def get_pos1(origin):
+    origin1 = Pos2Coord(origin)
+    origin_lng = origin1['lng']
+    origin_lat = origin1['lat']
+    ln = str(round(origin_lat, 3))
+    la = str(round(origin_lng, 3))
+    pos = ln + "," + la
+
+    return pos
+
+
 if __name__ == '__main__':
     # 正地理编码
     val1 = Pos2Coord('上海大学宝山校区')
