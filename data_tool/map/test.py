@@ -31,21 +31,24 @@ def get_pos1(origin):
 
 origin = '上海大学宝山校区'
 destination = '上海迪士尼乐园'
-approach_path = ['东方明珠', '上海徐家汇地铁站']
+# approach_path = ['东方明珠', '上海徐家汇地铁站']
+approach_path = '东方明珠'
 
 route_type = '躲避拥堵'
 
 origin_ln, origin_la, destination_ln, destination_la = get_pos(origin, destination)
 origin = origin_ln + "," + origin_la
 destination = destination_ln + "," + destination_la
-approach = ''
+# approach = ''
 
-print(approach_path)
-for i in approach_path:
-    approach = approach + "|" + get_pos1(i)
-    print(approach)
+# print(approach_path)
+# for i in approach_path:
+#     approach = approach + "|" + get_pos1(i)
+#     print(approach)
 
-waypoints = approach[1:]  # 途径点
+# waypoints = approach[1:]  # 途径点
+
+waypoints = get_pos1(approach_path)
 print(waypoints)
 #
 if route_type == '距离最短':
@@ -75,7 +78,8 @@ else:
 
 # origin = '40.01116,116.339303'
 # destination = '39.936404,116.452562'
-AK = 'ASDFGGHHHHHH'     # key = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'
+AK = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'
+# AK = 'ASDFGGHHHHHH'
 # # 驾车
 url = 'http://api.map.baidu.com/direction/v2/driving?origin=%s&destination=%s&ak=%s&waypoints=%s&tactics=%s' % (origin, destination, AK, waypoints, tactics)
 # real_url = url + "origin="+slat+","+slng+"&destination="+dlat+","+dlng+"&ak="+ak

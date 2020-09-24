@@ -6,8 +6,8 @@
 
 import requests
 
-
-AK = 'ASDFGGHHHHHH'   # key = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'
+AK = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'
+# AK = 'ASDFGGHHHHHH'   # key
 
 
 def Pos2Coord(name):

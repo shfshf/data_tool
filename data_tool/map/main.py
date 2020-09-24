@@ -48,7 +48,7 @@ if __name__ == '__main__':
         for b in [all_path[i:i + n] for i in range(0, len(all_path), n)]:
             print(', '.join(b))
             res.append(', '.join(b))
-        print(res)
+        # print(res)
     elif transit_mode == 'Bike':
         ride_res = Round_plan(transit_mode)
         stepstr = ride_res.stod(origin_ln, origin_la, destination_ln, destination_la)

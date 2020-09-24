@@ -53,7 +53,8 @@ class Round_plan():
         else:
             tactics = '0'  # 默认路线类型名
         url = "http://api.map.baidu.com/direction/v2/" + a + "?"   # API地址
-        ak = 'ASDCFGHHJJJJ'  # 秘钥  key = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'
+        ak = 'sjuGnGH3aYRZCx8lMphRQfhSys5yhYp2'
+        # ak = 'ASDCFGHHJJJJ'  # 秘钥
         if self.transit_mode == "E-bike":
             # 完整的请求代码
             real_url = url + "origin="+slat+","+slng+"&destination="+dlat+","+dlng+"&ak="+ak+"&riding_type="+"1"
